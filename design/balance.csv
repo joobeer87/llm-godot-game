@@ -1,0 +1,7 @@
+parameter,value,description
+player_speed,200.0,Horizontal movement speed of player
+player_jump_force,300.0,Vertical jump force of player
+player_health,3,Starting health of player
+enemy_speed,100.0,Movement speed of enemies
+enemy_spawn_interval,2.0,Initial interval between enemy spawns (seconds)
+pickups_per_level,3,Number of pickups in each level
