@@ -1,0 +1,15 @@
+; Engine configuration file.
+; It's best to edit this file using the Godot editor.
+; If you make modifications by hand, please run the project to ensure correct settings.
+; The format of this file is: name=value
+; For repeated fields (arrays) use the syntax: array_name=[ value1, value2, ... ]
+
+config_version=4
+
+[application]
+config/name="LLM Game"
+config/description="A minimal Godot project scaffold for AI-driven game development."
+run/main_scene="res://Main.tscn"
+
+[rendering]
+quality/driver/driver_name="forward_mobile"
