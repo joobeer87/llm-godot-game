@@ -1,0 +1,28 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Godot
+        run: |
+          sudo mkdir -p /opt/godot
+          curl -L -o /opt/godot/godot.zip https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_64.zip
+          unzip -o /opt/godot/godot.zip -d /opt/godot
+          sudo ln -s /opt/godot/Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Export Web build
+        run: |
+          godot --headless --path src --export-release "Web" build/web/index.html
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: build/web
